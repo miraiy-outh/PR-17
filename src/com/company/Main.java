@@ -58,52 +58,14 @@ public class Main {
     }
 
     public static void add(File file) {
-        File tmp = new File("C:\\Users\\shoko\\IdeaProjects\\PR-17\\tmp.txt");
-        addSecond(file, tmp);
-        addThird(tmp, file);
-        tmp.delete();
-    }
-
-    public static void addSecond(File file, File tmp) {
-        Scanner scanner;
+        System.out.println("Добавьте информацию:");
+        FileWriter fileWriter1 = null;
         try {
-            scanner = new Scanner(file);
-            FileWriter fileWriter;
-            try {
-                fileWriter = new FileWriter(tmp);
-                while (scanner.hasNextLine()) {
-                    String data = scanner.nextLine();
-                    fileWriter.write(data);
-                }
-                System.out.println("Добавьте информацию в файл:");
-                fileWriter.write(scan.nextLine());
-                fileWriter.flush();
-                fileWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void addThird(File file, File tmp) {
-        Scanner scanner;
-        try {
-            scanner = new Scanner(file);
-            FileWriter fileWriter;
-            try {
-                fileWriter = new FileWriter(tmp);
-                while (scanner.hasNextLine()) {
-                    String data = scanner.nextLine();
-                    fileWriter.write(data);
-                }
-                fileWriter.flush();
-                fileWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
+            fileWriter1 = new FileWriter(file, true);
+            fileWriter1.write(scan.nextLine());
+            fileWriter1.flush();
+            fileWriter1.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
